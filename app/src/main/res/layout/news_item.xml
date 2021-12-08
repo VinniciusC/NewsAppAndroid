@@ -27,12 +27,13 @@
             android:id="@+id/Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:gravity="center_vertical"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:textColor="@color/black"
-            android:text="News asdasdasdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            android:text="News Title" />
         <TextView
             android:id="@+id/Description"
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="8dp"
             android:textColor="@color/black"
-            android:text="News asdasdasdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            android:text="News description" />
     </LinearLayout>
 
 

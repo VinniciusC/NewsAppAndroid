@@ -11,6 +11,7 @@ import com.example.newsapp.Article
 import com.example.newsapp.databinding.ActivityMainBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.newsapp.R
 import com.example.newsapp.utils.GlideModule
 import com.bumptech.glide.request.RequestOptions
@@ -44,9 +45,10 @@ class NewsAdapter(val context: Context,
             .centerCrop()
 
         Glide.with(context)
-            .load("https://cointrader21.files.wordpress.com/2018/11/litecoinlogo.png")
+            .load(articles[position].urlToImage)
             .apply(sharedOptions)
             .into(holder.ImgNews)
+
 
 
     }
@@ -64,11 +66,11 @@ class NewsAdapter(val context: Context,
 
     override fun onClick(v: View?) {
         val position: Int = adapterPosition
-        listener.onItemClick(position)
+        articles[position].url?.let { listener.onItemClick(it) }
 
     }
 }
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(url: String)
     }
 }
