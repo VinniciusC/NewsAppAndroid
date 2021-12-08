@@ -16,7 +16,6 @@ class MainPresenter(val view: MainContract.View, context: Context) : MainContrac
 
     val articleDAO = AppDatabase.getInstance(context).ArticleDAO()
 
-
     override fun loadList(context: Context){
 
         view.showLoading()
@@ -31,15 +30,11 @@ class MainPresenter(val view: MainContract.View, context: Context) : MainContrac
                 if(response.body() != null){
 
                     doAsync {
-                        articleDAO.deleteAll()
-                       val teste = articleDAO.getAll()
 
-                        Log.d("error",teste.toString())
-//                        Log.d("error",response.body()!!.articles.toString())
-                        var aa = articleDAO.insertAll(response.body()!!.articles as Array<Article>)
-//                       Log.d("error",aa as String)
+                        articleDAO.deleteAll()
+                        articleDAO.insertAll(response.body()!!.articles)
+
                         uiThread {
-                            Log.d("error","chegou no negócio")
                             view.showList(response.body()!!.articles)
                         }
                     }
@@ -54,7 +49,6 @@ class MainPresenter(val view: MainContract.View, context: Context) : MainContrac
                         }
                     }
 
-//                    view.showMessage("Sem noticias")
                     }
             }
 
@@ -64,10 +58,11 @@ class MainPresenter(val view: MainContract.View, context: Context) : MainContrac
                     val local_articles = articleDAO.getAll()
 
                     uiThread {
+                        view.showMessage("Falha na conexão, exibindo notícias salvas na memória")
                         view.showList(local_articles)
                     }
                 }
-//                view.showMessage("Falha na conexão")
+
             }
         })
     }

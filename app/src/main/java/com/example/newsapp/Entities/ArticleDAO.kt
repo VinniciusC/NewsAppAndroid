@@ -6,7 +6,7 @@ import com.example.newsapp.Article
 @Dao
 interface ArticleDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(articles: Array<Article>) : List<Long>
+    fun insertAll(articles: List<Article>) : List<Long>
 
     @Query("SELECT * FROM article")
     fun getAll():List<Article>

@@ -7,13 +7,13 @@ import androidx.room.RoomDatabase
 import com.example.newsapp.Article
 
 @Database(entities = arrayOf(Article::class), version = 1)
-public abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase: RoomDatabase() {
     companion object{
-        private val DB_NAME = "article.db"
+        private val DB_NAME = "article"
         private var instance: AppDatabase? = null
 
         private fun create(context: Context):AppDatabase?{
-            return Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).build()
+            return Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME).build()
         }
 
         public fun getInstance(context: Context): AppDatabase{
@@ -24,5 +24,5 @@ public abstract class AppDatabase: RoomDatabase() {
             }
         }
 
-    public abstract fun ArticleDAO(): ArticleDAO
+    abstract fun ArticleDAO(): ArticleDAO
 }
