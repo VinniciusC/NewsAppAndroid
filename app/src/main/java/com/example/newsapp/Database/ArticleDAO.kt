@@ -1,4 +1,7 @@
-package com.example.newsapp.Entities
+/**
+Interface para criar o DAO da biblioteca Room do banco de dados
+ */
+package com.example.newsapp.Database
 
 import androidx.room.*
 import com.example.newsapp.Article

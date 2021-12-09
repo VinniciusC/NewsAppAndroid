@@ -1,3 +1,7 @@
+/**
+Criação da classe do Glide para exibir imagens
+ */
+
 package com.example.newsapp.utils
 
 import com.bumptech.glide.annotation.GlideModule

@@ -1,3 +1,6 @@
+/**
+Entidade de um artigo na qual é o objeto de retorno da API e do Banco de Ddos
+ */
 package com.example.newsapp
 import androidx.room.Entity
 import androidx.room.PrimaryKey
